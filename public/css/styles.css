@@ -1,0 +1,92 @@
+html { background-color: #2888be }
+
+a, h1, h2, label { color: #bbd0ec; }
+
+a:hover { opacity: .75; }
+
+fieldset {
+  padding: 1rem;
+  border: medium solid #bbd0ec;
+}
+
+.logo {
+  display: block;
+  margin: 1rem auto;
+  width: 450px;
+  height: 150px;
+  vertical-align: bottom;
+  background: url("../img/img1.jpg") no-repeat center;
+  background-size: contain;
+}
+
+.error{
+  font-size: 2rem;
+  padding: 1rem;
+  background-color: #bbd0ec;
+  color: #FFF;
+}
+
+.poster {
+  max-width: 100px;
+}
+
+.table, .tablePatient { width: 100%; }
+
+.table td,.table th { padding: 0.5rem; }
+.tablePatient td,.table th { padding: 0.5rem; }
+
+.tablePatient th.title {
+  background-color: #EEE;
+}
+
+.tablePatient td {
+  background-color: #CCC;
+}
+
+.table tr:nth-child(even) { background-color: #CCC; }
+
+.table tr:nth-child(odd):not(first-child) { background-color: #EEE; }
+
+.button{
+  margin-top: 2rem;
+  padding: .5rem 1rem;
+  color: #FFF;
+  background-color: #bbd0ec;
+  cursor: pointer;
+}
+
+.button:hover { opacity: .75; }
+
+.add { background-color: #bbd0ec; }
+
+.edit { background-color: #0871b2; }
+
+.delete { background-color: #d23641; }
+
+
+.logoutButton{
+  margin-top: 2rem;
+  padding: .5rem 1rem;
+  color: #FFF;
+  background-color: #913655;;
+  cursor: pointer;
+}
+
+.returnButton{
+  margin-top: 2rem;
+  margin-left: 2rem;
+  padding: .5rem 1rem;
+  color: #FFF;
+  background-color: #913655;;
+  cursor: pointer;
+  
+}
+
+.logoutButton:hover { opacity: .75; }
+
+.buttonsContainer{
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  align-content: center;
+}

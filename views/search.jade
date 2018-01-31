@@ -1,0 +1,56 @@
+extends layout
+
+block content
+  if isAuthenticated
+    br
+    h1(align = "center") BUSQUEDA DE INFORMACION DE HISTORIAS CLINICAS
+    form(method="GET" action="/logout")
+      input.item.ph1.mauto.logoutButton(type="submit", value="Cerrar Sesión")
+    section.container 
+      div.item
+        h1 
+          a(href='/')= title
+      article.item 
+        fieldset
+          div.container.p1
+            form(method="GET" action="buscar")
+              label.item.i-b.v-top.ph3.p_25.right Cedula:
+              input.item.i-b.v-top.ph9.p_25(type="text", name="Pac_CI", id="Pac_CI" onfocus="focusCI()")
+
+              label.item.i-b.v-top.ph3.p_25.right(for="Pac_historiaclinica") Historia Clinica:
+              input.item.i-b.v-top.ph9.p_25#id(type="text", name="Pac_historiaclinica" onfocus="focusHC()")
+
+              label.item.i-b.v-top.ph3.p_25.right(for="Pac_tarjeta") No. Tarjeta:
+              input.item.i-b.v-top.ph9.p_25#id(type="text", name="Pac_tarjeta", onfocus="focusTR()")
+                
+              input.item.i-b.v-top.ph9.p_25(type="hidden", name="focus", id="focus" value="")
+
+              label.item.i-b.v-top.ph3.p_25.right(for="Pac_Apellidos") Apellidos:
+              input.item.i-b.v-top.ph9.p_25#id(type="text", name="Pac_Apellidos", onfocus="focusAP()")
+
+              label.item.i-b.v-top.ph3.p_25.right(for="Pac_Nombres") Nombres:
+              input.item.i-b.v-top.ph9.p_25#id(type="text", name="Pac_Nombres", onfocus="focusNO()")
+
+              p
+              input.item.ph4.mauto.button.edit(type="submit", value="Buscar")
+
+              script.
+                function focusCI(){
+                  document.getElementById('focus').value = 'CI'
+                }
+                function focusHC(){
+                  document.getElementById('focus').value = 'HC'
+                }
+                function focusTR(){
+                  document.getElementById('focus').value = 'TR'
+                }
+                function focusAP(){
+                  document.getElementById('focus').value = 'AP'
+                }
+                function focusNO(){
+                  document.getElementById('focus').value = 'NO'
+                }
+  else 
+    br
+    h1(align="center") Ud. no tiene acceso a este sitio
+                  

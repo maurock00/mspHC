@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  if isAuthenticated
+    div.item.center
+        h1 Registro no encotrado
+        form(method="GET" action="/search")
+          input.item.ph1.mauto.logoutButton(type="submit", value="Regresar")
+  else
+    br
+    h1(align="center") Ud. no tiene acceso a este sitio

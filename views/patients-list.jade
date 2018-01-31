@@ -1,0 +1,42 @@
+extends layout
+
+block content
+  if isAuthenticated
+    section.container 
+      div.item
+        h1 Lista de pacientes con coicidencia 
+      div.buttonsContainer
+        input.returnButton(type="button" value="Cerrar sesión" onClick="window.location = '/logout';")
+        input.returnButton(type="button" value="Regresar" onClick="window.location = '/search';")
+      article.item 
+        -if(data.length)
+            table.table
+              tr 
+                th Cedula 
+                th No. Historia Clinica
+                th Nombres
+                th Apellidos
+                th 
+              -each patient in data
+                tr 
+                  td #{patient.Pac_CI}
+                  td #{patient.Pac_historiaclinica}
+                  td #{patient.Pac_Nombres}
+                  td #{patient.Pac_Apellido1} #{patient.Pac_Apellido2}
+                  td 
+                    form(method="GET" action="buscar")
+                      input(type="hidden", name="Pac_CI", value="#{patient.Pac_CI}")
+                      input(type="hidden", name="Pac_historiaclinica", value="#{patient.Pac_historiaclinica}")
+                      -if(patient.Pac_CI == "")
+                        - var focusVar = "HC"
+                      -else
+                        - var focusVar = "CI"
+                      input(type="hidden", name="focus", id="focus", value="#{focusVar}")
+                      input.button.edit(type="submit", value="Ver datos")      
+                      
+                        
+        -else
+          p.error No existen registros que coincidan
+  else
+    br
+    h1(align="center") Ud. no tiene acceso a este sitio

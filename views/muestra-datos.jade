@@ -1,0 +1,103 @@
+extends layout
+
+block content
+  if isAuthenticated
+    br
+    h1(align = "center") BUSQUEDA DE INFORMACION DE HISTORIAS CLINICAS
+    div.buttonsContainer
+        input.returnButton(type="button" value="Cerrar sesión" onClick="window.location = '/logout';")
+        input.returnButton(type="button" value="Regresar" onClick="window.location = '/search';")
+    section.container 
+        div.item
+        aticle.item 
+            h1 #{title}
+            table.tablePatient
+                tr
+                    th.title Fecha registro
+                    td #{data[0].Pac_fecharegistro.toISOString().substring(0, 10)}
+                tr 
+                    th.title Cedula identidad
+                    td #{data[0].Pac_CI}
+                tr
+                    th.title Cod. historia clinica
+                    td #{data[0].Pac_historiaclinica}
+                tr
+                    th.title Nro. tarjeta
+                    td.title #{data[0].Pac_tarjeta}
+                tr
+                    th.title Apellidos
+                    td #{data[0].Pac_Apellido1} #{data[0].Pac_Apellido2}
+                tr
+                    th.title Nombres
+                    td #{data[0].Pac_Nombres}
+                tr
+                    th.title Sexo
+                    td #{data[0].Pac_sexo}
+                tr 
+                    th.title Fecha Nacimiento
+                    td #{data[0].Pac_fechanacimiento.toISOString().substring(0, 10)}
+                tr 
+                    th.title Edad
+                    td #{age}
+                tr
+                    th.title Estado Civil
+                    td #{data[0].Pac_EstadoCivil}
+                tr 
+                    th.title Ocupacion
+                    td #{data[0].Pac_ocupacion}
+                tr 
+                    th.title Afiliacion Seguro
+                    td Afilicacion: #{data[0].Pac_Seguro}  No.Seguro: #{data[0].Pac_nro_seguro} 
+                tr
+                    th.title Direccion
+                    td #{data[0].Pac_Direccion}
+                tr 
+                    th.title Provincia
+                    td #{data[0].Pac_Dir_provincia}
+                tr 
+                    th.title Ciudad
+                    td #{data[0].Pac_Dir_Ciudad}
+                tr
+                    th.title Canton
+                    td #{data[0].Pac_Dir_canton}
+        div.item
+        aticle.item
+            h1 Para menores de edad - Informacion Apoderado
+            table.table 
+                tr 
+                    th Dependencia 
+                    th Cedula
+                    th Apellidos y Nombres
+                    th Telefonos
+                tr 
+                    td #{data[0].Pac_Parentesco}
+                    td #{data[0].Aco_cedula}
+                    td #{data[0].Aco_nombres}
+                    td #{data[0].Aco_telefono}
+
+        div.item
+        aticle.item
+            h1 En caso de emergencia
+            table.table 
+                tr 
+                    th Apellidos y nombres 
+                    th Provincia
+                    th Canton
+                    th Ciudad
+                tr 
+                    td #{data[0].Pac_emer_avisar}
+                    td #{data[0].Pac_emer_provincia}
+                    td #{data[0].Pac_emer_canton}
+                    td #{data[0].Pac_emer_ciudad}
+            table.table 
+                tr 
+                    th Direccion
+                    th Relacion
+                    th Telefono
+                tr 
+                    td #{data[0].Pac_emer_direccion}
+                    td #{data[0].Pac_emer_relacion}
+                    td #{data[0].Pac_emer_telefono}
+  else
+    br
+    h1(align="center") Ud. no tiene acceso a este sitio

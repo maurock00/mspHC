@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  br
+  h1(align = "center") SISTEMA DE BUSQUEDA DE INFORMACION DE HISTORIAS CLINICAS
+  section.container 
+    div.item
+    article.item 
+      fieldset
+        div.container.p1
+          form(method="POST" action="/")
+            label.item.i-b.v-top.ph3.p_25.right Nombre de usuario:
+            input.item.i-b.v-top.ph9.p_25(type="text", name="username", id="userName" onfocus="focusCI()")
+
+            label.item.i-b.v-top.ph3.p_25.right(for="password") Contraseña:
+            input.item.i-b.v-top.ph9.p_25#id(type="password", name="password" onfocus="focusHC()")
+            p
+            input.item.ph4.mauto.button.edit(type="submit", value="Ingreso al sistema")
